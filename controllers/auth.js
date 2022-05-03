@@ -31,7 +31,7 @@ exports.createNewUser = (req, res, next) => {
     const password = req.body.password;
     const confirmPassword = req.body.confirmPassword;
 
-    console.log(email)
+    // console.log(email)
     bcrypt
         .hash(password, 12)
         .then(hashedPw => {
@@ -85,7 +85,7 @@ exports.UserLogin = (req, res, next) => {
             
             loadedUser = user;
 
-            console.log(loadedUser)
+            // console.log(loadedUser)
             return bcrypt.compare(password, user.password);
         })
         .then(isEqual => {
@@ -172,8 +172,8 @@ exports.updateCurrentUserDetails = async (req, res, next) => {
     const userFirstName = req.body.userFirstName;
     const userNameOrEmail = req.body.userNameOrEmail;
 
-    console.log(req.body)
-    console.log(userNameOrEmail)
+    // console.log(req.body)
+    // console.log(userNameOrEmail)
 
     const password = req.body.password;
 
@@ -185,25 +185,23 @@ exports.updateCurrentUserDetails = async (req, res, next) => {
 
         const hashedPassword = await bcrypt.hash(password, 12);
 
-        console.log(hashedPassword)
+        // console.log(hashedPassword)
 
-        console.log(currentUserId);
+        // console.log(currentUserId);
 
         const currentUser = await User.findById(currentUserId)
 
         if (!currentUser) {
-            console.log('user Not found')
-  
+
             error.statusCode = 404;
             throw error;
           }
 
         currentUser["userFirstName"] = userFirstName;
         currentUser["userNameOrEmail"] = userNameOrEmail;
-        console.log(currentUser["userNameOrEmail"] = userNameOrEmail)
         currentUser["password"] = hashedPassword;
 
-        console.log(currentUser)
+        // console.log(currentUser)
 
         await currentUser.save()
 

@@ -7,15 +7,6 @@ const Campaign = require('../models/campaign');
 ///////// CREATE A NEW CAMPAIGN CONTROLLER /////////
 exports.createNewCampaign = (req, res, next) => {
 
-    // const errors = validationResult(req);
-    // if (!errors.isEmpty()) {
-
-    //     const error = new Error('validation failed. ');
-    //     error.statusCode = 422;
-    //     error.data = errors.array();
-    //     throw error;
-
-    // }
     const setup = req.body.setup;
     const priceSetup = req.body.priceSetup;
     const setting = req.body.setting;

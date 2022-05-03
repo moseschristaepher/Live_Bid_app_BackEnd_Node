@@ -9,8 +9,8 @@ const campaignSchema = new Schema({
     setup: {
         captcha: {type: String, required: true},
         timezone: {type: String, required: true},
-        end: {type: String, required: true},
-        start: {type: String, required: true},
+        end: {type: Date, required: true},
+        start: {type: Date, required: true},
         name: {type: String, required: true},
         terms: {
             sponser_name: {type: String, required: true},
