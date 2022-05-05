@@ -10,6 +10,6 @@ const router = express.Router();
 
 
 
-router.post('/createCampaign', campaignController.createNewCampaign);
+router.put('/saveCampaign', campaignController.saveCampaign);
 
 module.exports = router;
